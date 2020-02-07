@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Week3.Models.Connectus 
+@{
+    ViewData["Title"] = "Connect us";
+}
+
+
+<h1>@ViewData["Title"]</h1>
+<fieldset>
+    @using (Html.BeginForm())
+    {
+        <p>
+            @Html.LabelFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Email)
+            @Html.TextBoxFor(model => model.Email)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Number)
+            @Html.TextBoxFor(model => model.Number)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Message)
+            @Html.TextAreaFor(model => model.Message)
+        </p>
+        <p>
+            <button type="submit">Contact Us</button>
+        </p>
+            }
+    </fieldset>
+@if(Model!=null)
+{
+    <p>Message sent by:@Model.Name using Email:@Model.Email and number:@Model.Number </p>
+    <p>Message : @Model.Message sent at @Model.Date</p>
+}
